@@ -1,7 +1,17 @@
 from tkinter import *
+import os
+import sys
 
-#import tkinter
-#import _tkinter
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
  
 root = Tk()
 root.iconbitmap("")
@@ -50,7 +60,8 @@ entry.pack(padx = 3, pady = 3)
 # photo = ImageTk.PhotoImage(ico)
 # root.wm_iconphoto(False, photo)
 
-photo = PhotoImage(file = 'ico/unicorn_1f984.png')
+image1 = resource_path("ico/unicorn_1f984.png")
+photo = PhotoImage(file = image1)
 root.wm_iconphoto(False, photo)
 
 root.title("Unicorn Tools")

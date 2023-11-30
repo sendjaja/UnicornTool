@@ -1,1 +1,1 @@
-pyinstaller --onefile -w UnicornTool.py
+pyinstaller --onefile -w --add-data "ico/unicorn_1f984.png:ico/."  UnicornTool.py
